@@ -12,13 +12,17 @@ class AppSmallText extends StatelessWidget {
     this.size,
     this.height = 1.6,
     this.textAlign,
+    this.textDecoration,
+    this.fontWeight,
   }) : super(key: key);
 
   final String text;
+  final FontWeight? fontWeight;
   final Color? color;
   final double? size;
   final double height;
   final TextAlign? textAlign;
+  final TextDecoration? textDecoration;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +31,11 @@ class AppSmallText extends StatelessWidget {
       textAlign: textAlign,
       overflow: TextOverflow.ellipsis,
       style: GoogleFonts.lato(
+        decoration: textDecoration,
         fontSize: size ?? Dimensions.font16,
         color: color,
         height: height,
+        fontWeight: fontWeight
       ),
     );
   }

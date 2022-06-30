@@ -17,11 +17,11 @@ ThemeData theme() {
 InputDecorationTheme inputDecoration() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
       borderSide: const BorderSide(color: AppColors.kTextColor),
-      borderRadius: BorderRadius.circular(Dimensions.radius25),
-      gapPadding: Dimensions.width15);
+      borderRadius: BorderRadius.circular(25),
+      gapPadding: 15);
   return InputDecorationTheme(
-    contentPadding: EdgeInsets.symmetric(
-        horizontal: Dimensions.width25 + 10, vertical: Dimensions.height20),
+    contentPadding: const EdgeInsets.symmetric(
+        horizontal: 35, vertical: 25),
     floatingLabelBehavior: FloatingLabelBehavior.always,
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
@@ -43,12 +43,12 @@ AppBarTheme appBarTheme() {
         color: Colors.black,
       ),
       backgroundColor: Colors.white,
-      toolbarTextStyle: TextTheme(
+      toolbarTextStyle: const TextTheme(
         headline6:
-            TextStyle(color: AppColors.kTextColor, fontSize: Dimensions.font22),
+            TextStyle(color: AppColors.kTextColor, fontSize: 20),
       ).bodyText2,
-      titleTextStyle: TextTheme(
+      titleTextStyle: const TextTheme(
         headline6:
-            TextStyle(color: AppColors.kTextColor, fontSize: Dimensions.font22),
+            TextStyle(color: AppColors.kTextColor, fontSize: 20),
       ).headline6);
 }
