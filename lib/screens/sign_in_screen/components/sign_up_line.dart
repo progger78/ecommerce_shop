@@ -1,6 +1,8 @@
+
 import 'package:ecommerce_shop/routes/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 
 import '../../../utils/utils.dart';
 import '../../../widgets/widgets.dart';
@@ -23,6 +25,7 @@ class SignUpLine extends StatelessWidget {
         SizedBox(width: Dimensions.width5),
         GestureDetector(
           onTap: () {
+            Get.toNamed(RouteHelper.signUpScreen);
            
           },
           child: AppSmallText(

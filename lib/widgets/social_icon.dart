@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../utils/utils.dart';
+import '../utils/utils.dart';
 
 class SocialIcon extends StatelessWidget {
   const SocialIcon({
@@ -14,7 +14,7 @@ class SocialIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: press,
       child: Container(
         padding: EdgeInsets.all(getProportionateScreenHeight(12)),
         height: Dimensions.height45,

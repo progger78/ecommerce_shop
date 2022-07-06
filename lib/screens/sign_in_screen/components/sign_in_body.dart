@@ -4,12 +4,12 @@ import 'package:ecommerce_shop/widgets/app_small_text.dart';
 
 import 'package:flutter/material.dart';
 
-import 'sign_form.dart';
+import 'sign_in_form.dart';
 import 'sign_up_line.dart';
-import 'social_icon.dart';
+import '../../../widgets/social_icon.dart';
 
-class AuthBody extends StatelessWidget {
-  const AuthBody({Key? key}) : super(key: key);
+class SignInBody extends StatelessWidget {
+  const SignInBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AuthBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: SizeConfig.screenHeight * 0.02),
+              SizedBox(height: SizeConfig.screenHeight * 0.03),
               AppBigText(
                 textAlign: TextAlign.center,
                 text: 'Welcome Back',
@@ -37,11 +37,11 @@ class AuthBody extends StatelessWidget {
                     'Sign in with your login and password \nor continue with your social media account',
               ),
               SizedBox(
-                height: SizeConfig.screenHeight * 0.07,
+                height: SizeConfig.screenHeight * 0.04,
               ),
               const SignForm(),
               SizedBox(
-                height: SizeConfig.screenHeight * 0.07,
+                height: SizeConfig.screenHeight * 0.09,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

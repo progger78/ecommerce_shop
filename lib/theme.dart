@@ -5,13 +5,13 @@ import 'utils/utils.dart';
 
 ThemeData theme() {
   return ThemeData(
-      scaffoldBackgroundColor: Colors.white,
-      appBarTheme: appBarTheme(),
-      textTheme: textTheme(),
-      inputDecorationTheme: inputDecoration(),
-      colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: AppColors.kPrimaryColor,
-          secondary: AppColors.kSecondaryColor));
+    scaffoldBackgroundColor: Colors.white,
+    appBarTheme: appBarTheme(),
+    textTheme: textTheme(),
+    inputDecorationTheme: inputDecoration(),
+    colorScheme: ColorScheme.fromSwatch().copyWith(
+        primary: AppColors.kPrimaryColor, secondary: AppColors.kSecondaryColor),
+  );
 }
 
 InputDecorationTheme inputDecoration() {
@@ -20,12 +20,16 @@ InputDecorationTheme inputDecoration() {
       borderRadius: BorderRadius.circular(25),
       gapPadding: 15);
   return InputDecorationTheme(
-    contentPadding: const EdgeInsets.symmetric(
-        horizontal: 35, vertical: 25),
-    floatingLabelBehavior: FloatingLabelBehavior.always,
-    enabledBorder: outlineInputBorder,
-    focusedBorder: outlineInputBorder,
-  );
+      contentPadding: const EdgeInsets.symmetric(horizontal: 35, vertical: 25),
+      floatingLabelBehavior: FloatingLabelBehavior.always,
+      enabledBorder: outlineInputBorder,
+      focusedBorder: outlineInputBorder.copyWith(
+          borderSide: BorderSide(color: AppColors.kPrimaryColor)),
+      border: outlineInputBorder,
+      errorBorder: outlineInputBorder.copyWith(
+          borderSide: BorderSide(color: Colors.red, width: 1.5)),
+      focusedErrorBorder: outlineInputBorder.copyWith(
+          borderSide: BorderSide(color: AppColors.kPrimaryColor)));
 }
 
 TextTheme textTheme() {
@@ -44,11 +48,9 @@ AppBarTheme appBarTheme() {
       ),
       backgroundColor: Colors.white,
       toolbarTextStyle: const TextTheme(
-        headline6:
-            TextStyle(color: AppColors.kTextColor, fontSize: 20),
+        headline6: TextStyle(color: AppColors.kTextColor, fontSize: 20),
       ).bodyText2,
       titleTextStyle: const TextTheme(
-        headline6:
-            TextStyle(color: AppColors.kTextColor, fontSize: 20),
+        headline6: TextStyle(color: AppColors.kTextColor, fontSize: 20),
       ).headline6);
 }

@@ -68,7 +68,7 @@ class _BodyState extends State<Body> {
                   ),
                   DefaultButton(
                     text: 'Continue',
-                    press: () {Get.toNamed(RouteHelper.getAuthScreen());},
+                    press: () {Get.toNamed(RouteHelper.getSignInScreen());},
                   ),
                   const Spacer()
                 ],

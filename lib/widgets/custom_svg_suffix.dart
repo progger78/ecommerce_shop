@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../utils/utils.dart';
+import '../utils/utils.dart';
 
 class CustomSuffixIcon extends StatelessWidget {
   const CustomSuffixIcon({

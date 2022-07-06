@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'dimensions.dart';
 import 'size_config.dart';
 
 class AppColors {
@@ -12,8 +13,8 @@ class AppColors {
   );
   static const kSecondaryColor = Color(0xFF979797);
   static const kTextColor = Color(0xFF757575);
-
- 
+  static const kPurpleColor = Color.fromARGB(255, 81, 0, 220);
+  static const klightGreyColor = Color.fromARGB(255, 245, 245, 245);
 }
 
 const kAnimationDuration = Duration(milliseconds: 200);
@@ -36,20 +37,33 @@ const String kPassNullError = "Please Enter your password";
 const String kShortPassError = "Password is too short";
 const String kMatchPassError = "Passwords don't match";
 const String kNamelNullError = "Please Enter your name";
+const String kLastNamelNullError = "Please Enter your last name";
 const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";
 
+// final otpInputDecoration = InputDecoration(
+//   contentPadding:
+//       EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+//   border: outlineInputBorder(),
+//   focusedBorder: outlineInputBorder(),
+//   enabledBorder: outlineInputBorder(),
+// );
+
 final otpInputDecoration = InputDecoration(
-  contentPadding:
-      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
-  border: outlineInputBorder(),
-  focusedBorder: outlineInputBorder(),
-  enabledBorder: outlineInputBorder(),
-);
+    contentPadding: EdgeInsets.all(Dimensions.height15),
+    enabledBorder: outlineInputBorder(),
+    focusedBorder: outlineInputBorder(),
+    border: outlineInputBorder());
+
+// OutlineInputBorder outlineInputBorder() {
+//   return OutlineInputBorder(
+//     borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
+//     borderSide: const BorderSide(color: AppColors.kTextColor),
+//   );
+// }
 
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
-    borderSide: const BorderSide(color: AppColors.kTextColor),
-  );
+      borderSide: const BorderSide(color: AppColors.kTextColor),
+      borderRadius: BorderRadius.circular(Dimensions.radius15));
 }

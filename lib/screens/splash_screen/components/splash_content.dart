@@ -20,7 +20,7 @@ class SplashContent extends StatelessWidget {
               children: [
                 Spacer(),
                 AppBigText(
-                  text: 'TOKOTO',
+                  text: 'LaMoDa',
                   size: getProportionateScreenHeight(36),
                   fontWeight: FontWeight.bold,
                 ),

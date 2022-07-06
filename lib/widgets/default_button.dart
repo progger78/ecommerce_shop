@@ -8,15 +8,17 @@ class DefaultButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.press,
+    this.width,
   }) : super(key: key);
 
   final String text;
   final VoidCallback press;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.maxFinite,
+      width: width ?? double.maxFinite,
       height: getProportionateScreenHeight(60),
       child: FlatButton(
           shape: RoundedRectangleBorder(

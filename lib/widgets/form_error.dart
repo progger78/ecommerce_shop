@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../utils/utils.dart';
-import '../../../widgets/widgets.dart';
+import '../utils/utils.dart';
+import 'widgets.dart';
 
 class FormError extends StatelessWidget {
   const FormError({
@@ -22,7 +22,7 @@ class FormError extends StatelessWidget {
 
   Row errorText({String? errors}) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+
       children: [
         SvgPicture.asset('assets/icons/Error.svg'),
         SizedBox(

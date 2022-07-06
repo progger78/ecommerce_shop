@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import '../../../routes/route_helper.dart';
 import '../../../utils/utils.dart';
 import '../../../widgets/default_button.dart';
-import 'custom_svg_suffix.dart';
-import 'form_error.dart';
+import '../../../widgets/custom_svg_suffix.dart';
+import '../../../widgets/form_error.dart';
 
 class SignForm extends StatefulWidget {
   const SignForm({Key? key}) : super(key: key);
@@ -17,10 +17,12 @@ class SignForm extends StatefulWidget {
 
 class _SignFormState extends State<SignForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final List<String> errors = [];
+  List<String> errors = [];
   String? password;
   String? email;
   bool remember = false;
+
+  final FocusNode _passwordFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +70,8 @@ class _SignFormState extends State<SignForm> {
           DefaultButton(
             text: 'Continue',
             press: () {
-              if (_formKey.currentState!.validate()) {
+              var isValid = _formKey.currentState!.validate();
+              if (isValid && errors.isEmpty) {
                 _formKey.currentState!.save();
                 Get.toNamed(RouteHelper.loginSuccessfulScreen);
               }
@@ -81,44 +84,49 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildEmailTextField() {
     return TextFormField(
-        autocorrect: false,
-        keyboardType: TextInputType.emailAddress,
-        decoration: const InputDecoration(
-            label: Text('Email'),
-            hintText: 'Enter your email',
-            suffixIcon: CustomSuffixIcon(svgIcon: 'assets/icons/Mail.svg')),
-        onChanged: (value) {
-          if (value.isNotEmpty && errors.contains(kEmailNullError)) {
-            setState(() {
-              errors.remove(kEmailNullError);
-            });
-          } else if (emailValidatorRegExp.hasMatch(value) &&
-              errors.contains(kInvalidEmailError)) {
-            setState(() {
-              errors.remove(kInvalidEmailError);
-            });
-          }
-        },
-        validator: (value) {
-          if (value!.isEmpty && !errors.contains(kEmailNullError)) {
-            setState(() {
-              errors.add(kEmailNullError);
-            });
-          } else if (!emailValidatorRegExp.hasMatch(value) &&
-              !errors.contains(kInvalidEmailError)) {
-            setState(() {
-              errors.add(kInvalidEmailError);
-            });
-          }
-          return null;
-        },
-        onSaved: (newValue) => email = newValue);
+      autocorrect: false,
+      keyboardType: TextInputType.emailAddress,
+      textInputAction: TextInputAction.next,
+      decoration: const InputDecoration(
+          label: Text('Email'),
+          hintText: 'Enter your email',
+          suffixIcon: CustomSuffixIcon(svgIcon: 'assets/icons/Mail.svg')),
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
+          setState(() {
+            errors.remove(kEmailNullError);
+          });
+        } else if (emailValidatorRegExp.hasMatch(value) &&
+            errors.contains(kInvalidEmailError)) {
+          setState(() {
+            errors.remove(kInvalidEmailError);
+          });
+        }
+      },
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kEmailNullError)) {
+          setState(() {
+            errors.add(kEmailNullError);
+          });
+        } else if (!emailValidatorRegExp.hasMatch(value) &&
+            !errors.contains(kInvalidEmailError)) {
+          setState(() {
+            errors.add(kInvalidEmailError);
+          });
+        }
+        return null;
+      },
+      onSaved: (newValue) => email = newValue,
+      onFieldSubmitted: (ctx) =>
+          Focus.of(context).requestFocus(_passwordFocusNode),
+    );
   }
 
   TextFormField buildPasswordTextField() {
     return TextFormField(
       obscureText: true,
       autocorrect: false,
+      focusNode: _passwordFocusNode,
       decoration: const InputDecoration(
           label: Text('Password'),
           hintText: 'Enter your password',

@@ -27,11 +27,12 @@ class SuccessLogBody extends StatelessWidget {
             ),
             SizedBox(height: SizeConfig.screenHeight * 0.1),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(40)),
+              padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(40)),
               child: DefaultButton(
                   text: 'Go Back Home',
                   press: () {
-                    Get.toNamed(RouteHelper.initialScreen);
+                    Get.toNamed(RouteHelper.homeScreen);
                   }),
             )
           ],

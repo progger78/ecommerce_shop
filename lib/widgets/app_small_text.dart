@@ -14,6 +14,8 @@ class AppSmallText extends StatelessWidget {
     this.textAlign,
     this.textDecoration,
     this.fontWeight,
+    this.maxLines,
+    this.textOverflow,
   }) : super(key: key);
 
   final String text;
@@ -23,20 +25,22 @@ class AppSmallText extends StatelessWidget {
   final double height;
   final TextAlign? textAlign;
   final TextDecoration? textDecoration;
+  final int? maxLines;
+  final TextOverflow? textOverflow;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      overflow: TextOverflow.ellipsis,
+      overflow: textOverflow,
       style: GoogleFonts.lato(
-        decoration: textDecoration,
-        fontSize: size ?? Dimensions.font16,
-        color: color,
-        height: height,
-        fontWeight: fontWeight
-      ),
+          decoration: textDecoration,
+          fontSize: size ?? Dimensions.font16,
+          color: color,
+          height: height,
+          fontWeight: fontWeight),
+      maxLines: maxLines,
     );
   }
 }
